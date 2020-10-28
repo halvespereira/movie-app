@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useContext } from "react";
+import "./App.scss";
+import { StateContext, StateDispatchContext } from "./MyContext";
+import Header from "./components/Header";
+import Content from "./components/Content";
 
 function App() {
+  const state = useContext(StateContext);
+  const setState = useContext(StateDispatchContext);
+
+  const apiKey = "d2669e845450953087f55277f8eadfaf";
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setState(data);
+      });
+  }, [setState]);
+
+  console.log(state);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Content />
     </div>
   );
 }
