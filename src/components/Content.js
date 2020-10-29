@@ -1,16 +1,21 @@
 import React, { useContext } from "react";
-import { StateContext } from "../MyContext";
+import { MovieListContext } from "../MovieListContext";
+import Movie from "./Movie";
+import "./Content.scss";
 
 const Content = () => {
-  const featured = useContext(StateContext);
+  const movieList = useContext(MovieListContext);
 
-  return (
-    <div>
-      {featured.results.map((res) => (
-        <h3 style={{ color: "#ffffff" }}>{res.title}</h3>
-      ))}
-    </div>
-  );
+  if (movieList) {
+    return (
+      <div className="__Content">
+        {movieList.results.map((result, idx) => (
+          <Movie key={idx} movie={result} />
+        ))}
+      </div>
+    );
+  }
+  return null;
 };
 
 export default Content;

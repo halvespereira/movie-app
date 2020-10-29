@@ -1,0 +1,15 @@
+.__Filters {
+  display: flex;
+  margin-bottom: 4em;
+  padding: 0 13em;
+
+  button {
+    color: #ffffff;
+    background-color: transparent;
+    outline-width: 0;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    padding: 1em;
+    font-size: 15px;
+  }
+}

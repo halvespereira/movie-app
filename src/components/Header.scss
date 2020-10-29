@@ -1,17 +1,40 @@
 header {
   display: flex;
-  padding: 1em;
+  padding: 1em 13em;
+  margin-bottom: 2em;
+  position: sticky;
+  top: 0;
+  background: black;
+  height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
 
-  h1 {
-    flex: 0.2;
-    margin: 0;
-    color: #ffffff;
+  .__logo {
+    display: flex;
+
+    h1 {
+      margin: 0;
+      text-align: left;
+      color: #f9df60;
+      font-size: 42.2px;
+    }
   }
 
-  nav {
-    display: flex;
-    flex: 0.8;
-    margin: 0.5em 0;
-    justify-content: space-between;
+  .__Search {
+    input {
+      outline-width: 0;
+      border: none;
+      height: 12px;
+      width: 300px;
+      border-radius: 8px;
+      padding: 1em;
+      font-size: 21px;
+    }
+
+    input::placeholder {
+      text-align: left;
+      font-size: 21px;
+    }
   }
 }

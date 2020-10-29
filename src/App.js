@@ -1,27 +1,31 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./App.scss";
-import { StateContext, StateDispatchContext } from "./MyContext";
+import { MovieListContext, MovieListDispatchContext } from "./MovieListContext";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import Filters from "./components/Filters";
 
 function App() {
-  const state = useContext(StateContext);
-  const setState = useContext(StateDispatchContext);
+  const setMovieList = useContext(MovieListDispatchContext);
+  const movieList = useContext(MovieListContext);
+  const [filter, setFilter] = useState("popular");
 
   const apiKey = "d2669e845450953087f55277f8eadfaf";
 
-  useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+  if (!movieList) {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${filter}?api_key=${apiKey}&language=en-US&page=1`
+    )
       .then((res) => res.json())
       .then((data) => {
-        setState(data);
+        setMovieList(data);
       });
-  }, [setState]);
+  }
 
-  console.log(state);
   return (
     <div className="App">
       <Header />
+      <Filters setFilter={setFilter} />
       <Content />
     </div>
   );
