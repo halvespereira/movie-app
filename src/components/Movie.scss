@@ -5,6 +5,7 @@
   background-color: black;
   height: 540px;
   margin-bottom: 2em;
+  transition: 0.1s ease, -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
 
   img {
     width: 100%;
@@ -59,4 +60,8 @@
       color: red;
     }
   }
+}
+
+.__Movie:hover {
+  transform: translateY(-14px);
 }

@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import "./Header.scss";
 import TheatersOutlinedIcon from "@material-ui/icons/TheatersOutlined";
 const Header = () => {
+  const [headerClass, setHeaderClass] = useState("");
+  const listenScroll = (e) => {
+    if (window.scrollY > 40) {
+      setHeaderClass("__scrolledHeader");
+    } else {
+      setHeaderClass("");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScroll);
+  });
+
   return (
-    <header>
+    <header className={headerClass}>
       <div className="__logo">
         <TheatersOutlinedIcon
           style={{
-            color: "#f9df60",
+            color: "#ffc107",
             fontSize: "43px",
           }}
         />

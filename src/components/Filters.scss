@@ -1,7 +1,7 @@
 .__Filters {
   display: flex;
   margin-bottom: 4em;
-  padding: 0 13em;
+  padding: 0 12em;
 
   button {
     color: #ffffff;
@@ -11,5 +11,10 @@
     border: 1px solid lightgray;
     padding: 1em;
     font-size: 15px;
+  }
+
+  .__activeButton {
+    background-color: #28a745;
+    border: lightgreen 2px solid;
   }
 }
