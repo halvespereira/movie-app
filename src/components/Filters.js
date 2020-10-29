@@ -21,7 +21,7 @@ const Filters = () => {
     <div className="__Filters">
       {buttons.map((b, idx) => (
         <button value={b} key={idx} onClick={filter}>
-          {b.replace(/_/, "")}
+          {b.replace(/_/, " ")}
         </button>
       ))}
     </div>
