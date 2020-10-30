@@ -9,9 +9,11 @@ const Content = () => {
   if (movieList) {
     return (
       <div className="__Content">
-        {movieList.results.map((result, idx) => (
-          <Movie key={idx} movie={result} />
-        ))}
+        <div className="__moviesDiv">
+          {movieList.results.map((result, idx) => (
+            <Movie key={idx} movie={result} />
+          ))}
+        </div>
       </div>
     );
   }

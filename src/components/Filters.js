@@ -5,25 +5,20 @@ import {
   MovieFilterContext,
   MovieFilterDispatchContext,
 } from "../MovieFilterContext";
+import {
+  LoadingBarContext,
+  LoadingBarDispatchContext,
+} from "../LoadingBarContext";
+import { filterFunction } from "../helperFunctions";
 
 const Filters = () => {
   const setMovieList = useContext(MovieListDispatchContext);
   const movieFilter = useContext(MovieFilterContext);
   const setMovieFilter = useContext(MovieFilterDispatchContext);
-  const apiKey = "d2669e845450953087f55277f8eadfaf";
+  const setProgress = useContext(LoadingBarDispatchContext);
+  const progress = useContext(LoadingBarContext);
 
   const buttons = ["popular", "upcoming", "top_rated", "now_playing"];
-
-  const filter = (e) => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${e.target.value}?api_key=${apiKey}&language=en-US&page=1`
-    )
-      .then((res) => res.json())
-      .then(async (data) => {
-        setMovieList(data);
-        setMovieFilter(e.target.value);
-      });
-  };
 
   return (
     <div className="__Filters">
@@ -31,7 +26,15 @@ const Filters = () => {
         <button
           value={b}
           key={idx}
-          onClick={filter}
+          onClick={(e) =>
+            filterFunction(
+              e,
+              setProgress,
+              progress,
+              setMovieList,
+              setMovieFilter
+            )
+          }
           className={b === movieFilter ? "__activeButton" : null}
         >
           {b.replace(/_/, " ")}

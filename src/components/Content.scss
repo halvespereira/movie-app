@@ -1,6 +1,19 @@
 .__Content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 12em;
+
+  .__moviesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .__Content {
+    margin: 0 1em;
+    justify-content: center;
+  }
 }

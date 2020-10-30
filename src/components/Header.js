@@ -22,7 +22,7 @@ const Header = () => {
         <TheatersOutlinedIcon
           style={{
             color: "#ffc107",
-            fontSize: "43px",
+            fontSize: "42px",
           }}
         />
         <h1 className="__title">Movie App</h1>

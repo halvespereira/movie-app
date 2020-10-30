@@ -18,3 +18,10 @@
     border: lightgreen 2px solid;
   }
 }
+
+@media (max-width: 1000px) {
+  .__Filters {
+    padding: 0 1em;
+    justify-content: center;
+  }
+}
