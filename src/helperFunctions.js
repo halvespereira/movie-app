@@ -22,7 +22,7 @@ export const movieSearch = (
   e.preventDefault();
   setProgress(progress + 50);
   fetch(
-    `https://api.themoviedb.org/3/search/movie?&api_key=${apiKey}&query=${search}`
+    `https://api.themoviedb.org/3/search/movie?&api_key=${apiKey}&query=${search}&language=pt-BR&page=1`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -45,7 +45,7 @@ export const filterFunction = (
 ) => {
   const apiKey = "d2669e845450953087f55277f8eadfaf";
   fetch(
-    `https://api.themoviedb.org/3/movie/${e.target.value}?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/${e.target.value}?api_key=${apiKey}&language=pt-BR&page=1`
   )
     .then((res) => res.json())
     .then(async (data) => {

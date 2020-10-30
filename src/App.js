@@ -22,7 +22,7 @@ function App() {
 
   if (!movieList) {
     fetch(
-      `https://api.themoviedb.org/3/movie/${MovieFilter}?api_key=${apiKey}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/${MovieFilter}?api_key=${apiKey}&language=pt-BR&page=1`
     )
       .then((res) => res.json())
       .then((data) => {
