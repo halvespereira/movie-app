@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MovieListDispatchContext } from "../MovieListContext";
 import { MovieFilterDispatchContext } from "../MovieFilterContext";
 import {
   LoadingBarContext,
   LoadingBarDispatchContext,
 } from "../LoadingBarContext";
+import { SearchContext, SearchDispatchContext } from "../SearchContext";
 import "./Header.scss";
 import { movieSearch } from "../helperFunctions";
 
@@ -13,7 +14,9 @@ const Search = () => {
   const setMovieFilter = useContext(MovieFilterDispatchContext);
   const setProgress = useContext(LoadingBarDispatchContext);
   const progress = useContext(LoadingBarContext);
-  const [search, setSearch] = useState("");
+  const setSearch = useContext(SearchDispatchContext);
+  const search = useContext(SearchContext);
+  const [inputValue, setInputValue] = useState("");
 
   return (
     <form
@@ -26,15 +29,18 @@ const Search = () => {
           progress,
           setMovieList,
           setMovieFilter,
-          setSearch
+          setInputValue
         )
       }
     >
       <input
         type="text"
         placeholder="Search by movie title"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={inputValue}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setInputValue(e.target.value);
+        }}
       />
     </form>
   );

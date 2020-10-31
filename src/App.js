@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Content from "./components/Content";
 import Filters from "./components/Filters";
 import LoadingBar from "react-top-loading-bar";
+import Paginations from "./components/Paginations";
 
 function App() {
   const setMovieList = useContext(MovieListDispatchContext);
@@ -44,6 +45,7 @@ function App() {
       />
       <Header />
       <Filters />
+      <Paginations />
       <Content />
     </div>
   );

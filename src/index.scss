@@ -17,3 +17,10 @@ body {
     transition: opacity 1000ms linear;
   }
 }
+
+@media (max-width: 700px) {
+  html,
+  body {
+    background-color: black;
+  }
+}
