@@ -6,6 +6,7 @@ import {
   LoadingBarDispatchContext,
 } from "../LoadingBarContext";
 import { SearchContext, SearchDispatchContext } from "../SearchContext";
+import { PaginationPageDispatchContext } from "../PaginationContext";
 import "./Header.scss";
 import { movieSearch } from "../helperFunctions";
 
@@ -16,6 +17,7 @@ const Search = () => {
   const progress = useContext(LoadingBarContext);
   const setSearch = useContext(SearchDispatchContext);
   const search = useContext(SearchContext);
+  const setPaginationPage = useContext(PaginationPageDispatchContext);
   const [inputValue, setInputValue] = useState("");
 
   return (
@@ -29,7 +31,8 @@ const Search = () => {
           progress,
           setMovieList,
           setMovieFilter,
-          setInputValue
+          setInputValue,
+          setPaginationPage
         )
       }
     >

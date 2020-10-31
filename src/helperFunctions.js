@@ -18,7 +18,8 @@ export const movieSearch = (
   progress,
   setMovieList,
   setMovieFilter,
-  setInputValue
+  setInputValue,
+  setPaginationPage
 ) => {
   e.preventDefault();
   setProgress(progress + 50);
@@ -29,6 +30,7 @@ export const movieSearch = (
     .then((data) => {
       setMovieList(data);
       setMovieFilter("");
+      setPaginationPage(1);
       setTimeout(() => {
         setProgress(progress + 100);
       }, 500);
@@ -43,7 +45,8 @@ export const filterFunction = (
   progress,
   setMovieList,
   setMovieFilter,
-  setSearch
+  setSearch,
+  setPaginationPage
 ) => {
   fetch(
     `https://api.themoviedb.org/3/movie/${e.target.value}?api_key=${apiKey}&language=en-US&page=1`
@@ -52,6 +55,7 @@ export const filterFunction = (
     .then(async (data) => {
       setMovieList(data);
       setMovieFilter(e.target.value);
+      setPaginationPage(1);
       setProgress(progress + 50);
       setTimeout(() => {
         setProgress(progress + 100);

@@ -14,6 +14,10 @@ import {
   MovieFilterContext,
   MovieFilterDispatchContext,
 } from "../MovieFilterContext";
+import {
+  PaginationPageContext,
+  PaginationPageDispatchContext,
+} from "../PaginationContext";
 
 import { paginationFetch } from "../helperFunctions";
 
@@ -25,16 +29,20 @@ export default function Paginations() {
   const movieList = useContext(MovieListContext);
   const movieFilter = useContext(MovieFilterContext);
   const setMovieFilter = useContext(MovieFilterDispatchContext);
+  const paginationPage = useContext(PaginationPageContext);
+  const setPaginationPage = useContext(PaginationPageDispatchContext);
 
   return (
     <div>
       <Pagination
         count={movieList ? movieList.total_pages : 10000}
+        page={paginationPage}
         variant="outlined"
         shape="rounded"
         color="primary"
         className="__Pagination"
-        onClick={(e) =>
+        onClick={(e) => {
+          setPaginationPage(Number(e.target.textContent));
           paginationFetch(
             e,
             search,
@@ -43,8 +51,8 @@ export default function Paginations() {
             setMovieList,
             setMovieFilter,
             movieFilter
-          )
-        }
+          );
+        }}
       />
     </div>
   );

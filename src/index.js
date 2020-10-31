@@ -6,6 +6,7 @@ import { MovieListProvider } from "./MovieListContext";
 import { MovieFilterProvider } from "./MovieFilterContext";
 import { LoadingBarProvider } from "./LoadingBarContext";
 import { SearchProvider } from "./SearchContext";
+import { PaginationPageProvider } from "./PaginationContext";
 import { CSSTransition } from "react-transition-group";
 
 ReactDOM.render(
@@ -14,14 +15,16 @@ ReactDOM.render(
       <MovieFilterProvider>
         <LoadingBarProvider>
           <SearchProvider>
-            <CSSTransition
-              in={true}
-              appear={true}
-              timeout={1000}
-              classNames="fade"
-            >
-              <App />
-            </CSSTransition>
+            <PaginationPageProvider>
+              <CSSTransition
+                in={true}
+                appear={true}
+                timeout={1000}
+                classNames="fade"
+              >
+                <App />
+              </CSSTransition>
+            </PaginationPageProvider>
           </SearchProvider>
         </LoadingBarProvider>
       </MovieFilterProvider>

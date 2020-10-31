@@ -10,6 +10,7 @@ import {
   LoadingBarDispatchContext,
 } from "../LoadingBarContext";
 import { SearchDispatchContext } from "../SearchContext";
+import { PaginationPageDispatchContext } from "../PaginationContext";
 import { filterFunction } from "../helperFunctions";
 
 const Filters = () => {
@@ -19,6 +20,7 @@ const Filters = () => {
   const setProgress = useContext(LoadingBarDispatchContext);
   const progress = useContext(LoadingBarContext);
   const setSearch = useContext(SearchDispatchContext);
+  const setPaginationPage = useContext(PaginationPageDispatchContext);
 
   const buttons = ["popular", "upcoming", "top_rated", "now_playing"];
 
@@ -35,7 +37,8 @@ const Filters = () => {
               progress,
               setMovieList,
               setMovieFilter,
-              setSearch
+              setSearch,
+              setPaginationPage
             )
           }
           className={b === movieFilter ? "__activeButton" : null}
