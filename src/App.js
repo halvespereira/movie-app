@@ -31,7 +31,7 @@ function App() {
         setProgress(progress + 50);
         setTimeout(() => {
           setProgress(progress + 100);
-        }, 500);
+        }, 300);
       });
   }
 

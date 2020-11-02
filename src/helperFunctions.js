@@ -33,7 +33,7 @@ export const movieSearch = (
       setPaginationPage(1);
       setTimeout(() => {
         setProgress(progress + 100);
-      }, 500);
+      }, 300);
     });
 
   setInputValue("");
@@ -59,7 +59,7 @@ export const filterFunction = (
       setProgress(progress + 50);
       setTimeout(() => {
         setProgress(progress + 100);
-      }, 500);
+      }, 300);
     });
   setSearch("");
 };
@@ -84,7 +84,7 @@ export const paginationFetch = (
         setMovieFilter("");
         setTimeout(() => {
           setProgress(progress + 100);
-        }, 500);
+        }, 300);
       })
       .catch((err) => console.log(err));
   } else {
@@ -98,7 +98,7 @@ export const paginationFetch = (
         setProgress(progress + 50);
         setTimeout(() => {
           setProgress(progress + 100);
-        }, 500);
+        }, 300);
       });
   }
 };
